@@ -17,14 +17,18 @@ require('./conf/passport')(passport)
 
 // 引入路由文件
 const users = require('./routes/api/users')
+const patients = require('./routes/api/patients')
+const admins = require('./routes/api/admins')
 
 // 根路由
 router.get('/', async (ctx) => {
-  ctx.body = { msg: 'Hello koa interfaces' }
+  ctx.body = { msg: '测试成功！koa准备就绪！' }
 })
 
 //配置路由地址
 router.use('/api/users', users)
+router.use('/api/patients', patients)
+router.use('/api/admins', admins)
 
 // 配置路由
 app.use(router.routes()).use(router.allowedMethods())
@@ -43,6 +47,8 @@ mongoose
   .catch((err) => {
     console.log(err)
   })
+
+
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {

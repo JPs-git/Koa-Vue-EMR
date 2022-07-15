@@ -2,24 +2,17 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 // 实例化模板
-const UserSchema = new Schema({
+const AdminSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
+
   password: {
     type: String,
     required: true,
   },
-  // 权限
-  permission: {
-    type: String,
-    required: true,
-  },
+
   // 工号
   workNumber: {
     type: String,
@@ -30,10 +23,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  isActive:{
+  isActive: {
     type: Boolean,
-    default:true
-  }
+    default: true,
+  },
 })
 
-module.exports = User = mongoose.model('users', UserSchema)
+module.exports = Admin = mongoose.model('admins', AdminSchema)
